@@ -18,7 +18,7 @@ sing_day <- function(dataset, line, phrase_col){
   phrases <- dataset %>% pull({{phrase_col}})
   days <- map_chr(line:2, ~glue("{phrases[[.x]][1]}")) %>% str_c(collapse="\n")
   final_day <- glue("and {phrases[[1]][1]}")
-  first <- glue("On the {dataset$Day.in.Words[line]} of Christmas, my true love sent to me,")
+  first <- glue("On the {dataset$Day.in.Words[line]} day of Christmas, my true love sent to me,")
   song <- glue("{first}\n{days}\n{final_day}")
   return(song)
 }
